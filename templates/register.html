@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post">
+    <div>
+        {{form.hidden_tag()}}
+    </div>
+    <h3>{{message}}</h3>
+    <p>
+        {{form.login.label}}<br>
+        {{form.login}}
+    </p>
+    <p>
+        {{form.password.label}}<br>
+        {{form.password}}
+    </p>
+    <p>
+        {{form.passwordAgain.label}}<br>
+        {{form.passwordAgain}}
+    </p>
+    <p>
+        {{form.surname.label}}<br>
+        {{form.surname}}
+    </p>
+    <p>
+        {{form.name.label}}<br>
+        {{form.name}}
+    </p>
+    <p>
+        {{form.age.label}}<br>
+        {{form.age}}
+    </p>
+    <p>
+        {{form.position.label}}<br>
+        {{form.position}}
+    </p>
+    <p>
+        {{form.speciality.label}}<br>
+        {{form.speciality}}
+    </p>
+    <p>
+        {{form.address.label}}<br>
+        {{form.address}}
+    </p>
+    <p>
+        {{form.submit.label}}<br>
+        {{form.submit}}
+    </p>
+    
+</form>
+{% endblock %}

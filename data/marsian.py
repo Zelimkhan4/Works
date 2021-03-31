@@ -1,7 +1,7 @@
 from .db_session import SqlAlchemyBase
 import sqlalchemy
 import datetime
-
+from werkzeug.security import check_password_hash, generate_password_hash
 
 class User(SqlAlchemyBase):
     __tablename__ = 'users'
@@ -18,3 +18,9 @@ class User(SqlAlchemyBase):
 
     def __repr__(self):
         return f"<Colonist> {self.id} {self.surname} {self.name}"
+
+    def set_password(self, password):
+        self.hashed_password = generate_password_hash(password)
+
+    def check_password_hash(self, password):
+        return check_password_hash(self.hashed_password, password)
