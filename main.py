@@ -9,7 +9,13 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "yandexlyceum"
 
 
+@app.route('/')
+def index():
+    sess = create_session()
+    jobs = sess.query(Jobs).all()
+    return render_template('works.html', title="Работы", jobs=jobs)
+
+
 if __name__ == "__main__":
-    name = input().strip()
     global_init(db_name)
     app.run()

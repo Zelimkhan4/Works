@@ -1,6 +1,8 @@
 import sqlalchemy
 import datetime
 from .db_session import SqlAlchemyBase
+from sqlalchemy import orm
+# from .marsian import User
 
 
 class Jobs(SqlAlchemyBase):
@@ -13,3 +15,4 @@ class Jobs(SqlAlchemyBase):
     end_date = sqlalchemy.Column(sqlalchemy.DateTime)
     is_finished = sqlalchemy.Column(sqlalchemy.Boolean)
     team_leader = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"))
+    user = orm.relation("User")
